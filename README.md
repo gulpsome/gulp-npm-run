@@ -8,13 +8,38 @@ Notifications can be customized.
 
 [![NPM](https://nodei.co/npm/gulp-npm-run.png?mini=true)](https://www.npmjs.org/package/gulp-npm-run)
 
+As simple as it gets:
+
 ```javascript
 var gulp = require('gulp')
 require('gulp-npm-run')(gulp)
 ```
 
-See [datomiki](https://github.com/datomicon/datomiki)'s gulpfile.js for more advanced usage.
+It can take configuration options, here are a couple of them:
 
+```javascript
+var gulp = require('gulp')
+require('gulp-npm-run')(gulp, {
+  exclude: ['test'],
+  require: ['necessary']
+})
+```
+
+By `require` we insist there must be corresponding scripts in `package.json` -
+it's a declaration of assumptions or dependencies to insist on being satisfied.
+Use `requireStrict: true` to make sure require is actually satisfied -
+gulp will not run any tasks until all the scripts are found (with this option).
+There will be a warning sent to stderr in either case.
+
+The `test` script / task is good to `exclude` in favor of
+[gulp-npm-test](https://github.com/orlin/gulp-npm-test),
+which does the same, only better.
+Or, perhaps because you'd like to implement your very own test task.
+
+See [datomiki](https://github.com/datomicon/datomiki) for a practical / more advanced usage example.
+
+See [childish-process](https://github.com/orlin/childish-process)
+for further understanding of templates / options / notifications.
 
 ## Tests [![Build Status](https://img.shields.io/travis/orlin/gulp-npm-run.svg?style=flat)](http://travis-ci.org/orlin/gulp-npm-run)
 
