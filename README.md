@@ -15,16 +15,23 @@ var gulp = require('gulp')
 require('gulp-npm-run')(gulp)
 ```
 
-It can take configuration options:
+It can take configuration options, here are a couple of them:
 
 ```javascript
 var gulp = require('gulp')
 require('gulp-npm-run')(gulp, {
-  exclude: ['test']
+  exclude: ['test'],
+  require: ['necessary']
 })
 ```
 
-The `test` script / task is good to exclude in favor of
+By `require` we insist there must be corresponding scripts in `package.json` -
+it's a declaration of assumptions or dependencies to insist on being satisfied.
+Use `requireStrict: true` to make sure require is actually satisfied -
+gulp will not run any tasks until all the scripts are found (with this option).
+There will be a warning sent to stderr in either case.
+
+The `test` script / task is good to `exclude` in favor of
 [gulp-npm-test](https://github.com/orlin/gulp-npm-test),
 which does the same, only better.
 Or, perhaps because you'd like to implement your very own test task.
