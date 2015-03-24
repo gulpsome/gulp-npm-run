@@ -8,13 +8,31 @@ Notifications can be customized.
 
 [![NPM](https://nodei.co/npm/gulp-npm-run.png?mini=true)](https://www.npmjs.org/package/gulp-npm-run)
 
+As simple as it gets:
+
 ```javascript
 var gulp = require('gulp')
 require('gulp-npm-run')(gulp)
 ```
 
-See [datomiki](https://github.com/datomicon/datomiki)'s gulpfile.js for more advanced usage.
+It can take configuration options:
 
+```javascript
+var gulp = require('gulp')
+require('gulp-npm-run')(gulp, {
+  exclude: ['test']
+})
+```
+
+The `test` script / task is good to exclude in favor of
+[gulp-npm-test](https://github.com/orlin/gulp-npm-test),
+which does the same, only better.
+Or, perhaps because you'd like to implement your very own test task.
+
+See [datomiki](https://github.com/datomicon/datomiki) for a practical / more advanced usage example.
+
+See [childish-process](https://github.com/orlin/childish-process)
+for further understanding of templates / options / notifications.
 
 ## Tests [![Build Status](https://img.shields.io/travis/orlin/gulp-npm-run.svg?style=flat)](http://travis-ci.org/orlin/gulp-npm-run)
 
