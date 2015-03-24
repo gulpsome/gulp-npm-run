@@ -22,6 +22,7 @@
   "contributors": [],
   "main": "index.js",
   "dependencies": {
+    "chalk": "^1.0.0",
     "childish-process": "0.0.4-alpha",
     "ramda": "^0.13.0"
   },

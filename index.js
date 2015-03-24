@@ -1,5 +1,6 @@
 var R = require('ramda'),
     path = require('path'),
+    red = require('chalk').red,
     run = require('childish-process')
 
 module.exports = function (gulp, opts) {
@@ -14,8 +15,8 @@ module.exports = function (gulp, opts) {
   if (scripts.length) {
     if(R.intersection(scriptsAll, o.require).length < o.require.length) {
       // some required script was not in package.json
-      console.error("Not all of the required scripts were found in package.json")
-      console.error("Missing:", R.difference(o.require, scriptsAll))
+      console.error(red("Not all of the required scripts were found in package.json"))
+      console.error(red("Missing:"), R.difference(o.require, scriptsAll))
       if (o.requireStrict) process.exit(1)
     }
     scripts.forEach(function (script) {
