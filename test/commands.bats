@@ -28,5 +28,5 @@ pwd=$(pwd)
 @test "gulp-npm-run can require that some scripts be present, in order to work" {
   run $base --gulpfile ${pwd}/test/gulpfile-req-strict.js test
   assert_failure
-  assert_output_contains "Missing: [ 'necessary' ]"
+  assert_output_contains "Missing: [ 'necessary', 'v' ]"
 }

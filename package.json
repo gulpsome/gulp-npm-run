@@ -22,8 +22,10 @@
   "contributors": [],
   "main": "index.js",
   "dependencies": {
+    "chalk": "^1.0.0",
     "childish-process": "0.0.4-alpha",
-    "lodash": "^2.4.1"
+    "gulp-util": "^3.0.4",
+    "ramda": "^0.13.0"
   },
   "devDependencies": {
     "batshit": "0.1.0-1"
