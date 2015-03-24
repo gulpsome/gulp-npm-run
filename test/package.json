@@ -12,6 +12,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha",
     "deps": "npm ls --depth 0",
-    "prune": "npm prune"
+    "prune": "npm prune",
+    "ver": "npm version"
   }
 }

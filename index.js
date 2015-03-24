@@ -5,17 +5,17 @@ var R = require('ramda'),
 module.exports = function (gulp, opts) {
   var def = R.merge({exclude: [], require: [], requireStrict: false, customize: {}})
   var o = def(opts || {})
-  var scripts = R.keys(require(path.join(process.cwd(), 'package.json')).scripts)
-  scripts = R.difference(scripts, o.exclude)
+  var scriptsAll = R.keys(require(path.join(process.cwd(), 'package.json')).scripts)
+  var scripts = R.difference(scriptsAll, o.exclude)
   if (o.templates) {
     run = run({childish: {templates: require(path.join(process.cwd(), o.templates))}})
   }
 
   if (scripts.length) {
-    if(R.intersection(scripts, o.require).length < o.require.length) {
+    if(R.intersection(scriptsAll, o.require).length < o.require.length) {
       // some required script was not in package.json
       console.error("Not all of the required scripts were found in package.json")
-      console.error("Missing:", R.difference(o.require, scripts))
+      console.error("Missing:", R.difference(o.require, scriptsAll))
       if (o.requireStrict) process.exit(1)
     }
     scripts.forEach(function (script) {
