@@ -19,9 +19,14 @@ pwd=$(pwd)
   assert_failure
 }
 
-@test "gulp-npm-run can require that some scripts be present, in order to work" {
-  echo ${pwd}/test/gulpfile-req.js
+@test "gulp-npm-run can require certain scripts being wanted and complain about any missing ones" {
   run $base --gulpfile ${pwd}/test/gulpfile-req.js test
+  assert_success
+  assert_output_contains "Missing: [ 'wanted' ]"
+}
+
+@test "gulp-npm-run can require that some scripts be present, in order to work" {
+  run $base --gulpfile ${pwd}/test/gulpfile-req-strict.js test
   assert_failure
   assert_output_contains "Missing: [ 'necessary' ]"
 }

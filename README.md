@@ -27,6 +27,9 @@ require('gulp-npm-run')(gulp, {
 
 By `require` we insist there must be corresponding scripts in `package.json` -
 it's a declaration of assumptions or dependencies to insist on being satisfied.
+Use `requireStrict: true` to make sure require is actually satisfied -
+gulp will not run any tasks until all the scripts are found (with this option).
+There will be a warning sent to stderr in either case.
 
 The `test` script / task is good to `exclude` in favor of
 [gulp-npm-test](https://github.com/orlin/gulp-npm-test),

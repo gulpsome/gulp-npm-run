@@ -1,3 +1,3 @@
 var gulp = require('gulp')
 
-require('../index.js')(gulp, {require: ['necessary']})
+require('../index.js')(gulp, {require: ['wanted']})
