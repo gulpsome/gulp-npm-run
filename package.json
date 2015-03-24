@@ -24,6 +24,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "childish-process": "0.0.4-alpha",
+    "gulp-help": "^1.3.4",
     "gulp-util": "^3.0.4",
     "ramda": "^0.13.0"
   },

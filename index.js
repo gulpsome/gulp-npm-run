@@ -1,10 +1,13 @@
 var R = require('ramda'),
     path = require('path'),
+    help = require('gulp-help'),
     red = require('chalk').red,
     log = require('gulp-util').log
     run = require('childish-process')
 
 module.exports = function (gulp, opts) {
+  gulp = help(gulp)
+
   var def = R.merge({exclude: [], require: [], requireStrict: false, customize: {}})
   var o = def(opts || {})
   var scriptsAll = R.keys(require(path.join(process.cwd(), 'package.json')).scripts)
@@ -30,4 +33,6 @@ module.exports = function (gulp, opts) {
       })
     })
   }
+
+  return gulp
 }
