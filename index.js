@@ -1,21 +1,21 @@
-var _ = require('lodash')
-var path = require('path')
-var run = require('childish-process')
+var R = require('ramda'),
+    path = require('path'),
+    run = require('childish-process')
 
 module.exports = function (gulp, opts) {
-  var o = opts || {}
-  _.defaults(o, {exclude: [], require: [], requireStrict: false, customize: {}})
-  var scripts = _.keys(require(path.join(process.cwd(), 'package.json')).scripts)
-  scripts = _.difference(scripts, o.exclude)
+  var def = R.merge({exclude: [], require: [], requireStrict: false, customize: {}})
+  var o = def(opts || {})
+  var scripts = R.keys(require(path.join(process.cwd(), 'package.json')).scripts)
+  scripts = R.difference(scripts, o.exclude)
   if (o.templates) {
     run = run({childish: {templates: require(path.join(process.cwd(), o.templates))}})
   }
 
   if (scripts.length) {
-    if(_.intersection(scripts, o.require).length < o.require.length) {
+    if(R.intersection(scripts, o.require).length < o.require.length) {
       // some required script was not in package.json
       console.error("Not all of the required scripts were found in package.json")
-      console.error("Missing:", _.difference(o.require, scripts))
+      console.error("Missing:", R.difference(o.require, scripts))
       if (o.requireStrict) process.exit(1)
     }
     scripts.forEach(function (script) {
