@@ -25,11 +25,15 @@
     "childish-process": "0.0.4-alpha",
     "lodash": "^2.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "batshit": "0.1.0-1"
+  },
   "jshintConfig": {
     "asi": true
   },
-  "scripts": {},
+  "scripts": {
+    "test": "batshit -t test"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
