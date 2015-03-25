@@ -1,8 +1,10 @@
+"use strict"
+
 var R = require('ramda'),
     path = require('path'),
     help = require('gulp-help'),
     red = require('chalk').red,
-    log = require('gulp-util').log
+    log = require('gulp-util').log,
     run = require('childish-process')
 
 module.exports = function (gulp, opts) {

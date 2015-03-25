@@ -32,7 +32,8 @@
     "batshit": "0.1.0-1"
   },
   "jshintConfig": {
-    "asi": true
+    "asi": true,
+    "node": true
   },
   "scripts": {
     "test": "batshit -t test"
