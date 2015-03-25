@@ -8,9 +8,21 @@ var R = require('ramda'),
 module.exports = function (gulp, opts) {
   gulp = help(gulp)
 
-  var def = R.merge({exclude: [], require: [], requireStrict: false, customize: {}})
+  var def = R.merge({
+    include: [],
+    exclude: [],
+    require: [],
+    requireStrict: false,
+    customize: {}
+  })
   var o = def(opts || {})
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
+  var backtick = function (str) { return '`' + str + '`' }
+  var includeHelp = R.mapObj(backtick, theScripts)
+  if (R.is(Object, o.include)) {
+    includeHelp = R.merge(includeHelp, o.include)
+    o.include = R.keys(o.include)
+  }
   var allScripts = R.keys(theScripts)
   var useScripts = R.difference(allScripts, o.exclude) // the ones to become tasks
   if (o.templates) {
@@ -25,8 +37,7 @@ module.exports = function (gulp, opts) {
       if (o.requireStrict) process.exit(1)
     }
     useScripts.forEach(function (script) {
-      var help = '`' + theScripts[script] + '`'
-      gulp.task(script, help, function () {
+      gulp.task(script, includeHelp[script], function () {
         var recipe = o.customize[script] || o.default || 'default'
         if (typeof recipe === "string") {
           recipe = {template: recipe}
