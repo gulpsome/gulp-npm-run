@@ -36,6 +36,22 @@ The `test` script / task is good to `exclude` in favor of
 [gulp-npm-test](https://github.com/orlin/gulp-npm-test),
 which does the same, only better.
 Or, perhaps because you'd like to implement your very own test task.
+In any case, excluding scripts isn't strictly required to gulp-implement them,
+as one can simply call `gulp.task`, replacing anything as necessary.
+
+The counterpart of exclude is include, which could be an Array whitelist.
+Its more useful form is an Object, the keys corresponding to npm scripts,
+the values as `help` for [gulp-help](https://github.com/chmontgomery/gulp-help).
+In accordance with its `gulp.task` api this help can be a message String,
+or `false` in which case the script's gulp task doesn't show with `gulp help`.
+All tasks created by `gulp-npm-run` will have help messages by default -
+these basically show what the script (i.e. command) being `npm run` is, exactly.
+Use the [new task api](https://github.com/chmontgomery/gulp-help#new-task-api)
+to describe tasks subsequently added, if more complete documentation is desired.
+
+```sh
+gulp help
+```
 
 See [datomiki](https://github.com/datomicon/datomiki)
 for a practical, somewhat more advanced usage example.

@@ -10,8 +10,9 @@ module.exports = function (gulp, opts) {
 
   var def = R.merge({exclude: [], require: [], requireStrict: false, customize: {}})
   var o = def(opts || {})
-  var scriptsAll = R.keys(require(path.join(process.cwd(), 'package.json')).scripts)
-  var scripts = R.difference(scriptsAll, o.exclude)
+  var scriptsThe = require(path.join(process.cwd(), 'package.json')).scripts
+  var scriptsAll = R.keys(scriptsThe)
+  var scripts = R.difference(scriptsAll, o.exclude) // the ones to become tasks
   if (o.templates) {
     run = run({childish: {templates: require(path.join(process.cwd(), o.templates))}})
   }
@@ -24,7 +25,8 @@ module.exports = function (gulp, opts) {
       if (o.requireStrict) process.exit(1)
     }
     scripts.forEach(function (script) {
-      gulp.task(script, function () {
+      var help = '`' + scriptsThe[script] + '`'
+      gulp.task(script, help, function () {
         var recipe = o.customize[script] || o.default || 'default'
         if (typeof recipe === "string") {
           recipe = {template: recipe}
