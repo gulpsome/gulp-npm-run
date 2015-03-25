@@ -5,22 +5,27 @@ var R = require('ramda'),
     help = require('gulp-help'),
     red = require('chalk').red,
     log = require('gulp-util').log,
-    run = require('childish-process')
+    run = require('childish-process'),
+    def = R.merge({
+      include: [],
+      exclude: [],
+      require: [],
+      requireStrict: false,
+      customize: {}
+    }),
+    scriptHelp = function (str) {
+      var matches = str.match(/^(\.?\/?node_modules\/.bin\/)?(.*)$/)
+      // - stands for having shortened the local script path down its essential
+      // ≈ is "approximately equal to" - a global of unknown location / version
+      return (matches[1] ? '-' : '≈') + ' `' + matches[2] + '`'
+    }
 
 module.exports = function (gulp, opts) {
   gulp = help(gulp)
 
-  var def = R.merge({
-    include: [],
-    exclude: [],
-    require: [],
-    requireStrict: false,
-    customize: {}
-  })
   var o = def(opts || {})
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
-  var backtick = function (str) { return '`' + str + '`' }
-  var includeHelp = R.mapObj(backtick, theScripts)
+  var includeHelp = R.mapObj(scriptHelp, theScripts)
   if (R.is(Object, o.include)) {
     includeHelp = R.merge(includeHelp, o.include)
     o.include = R.keys(o.include)
