@@ -11,6 +11,7 @@ var R = require('ramda'),
       exclude: [],
       require: [],
       requireStrict: false,
+      withoutNpmRun: true,
       customize: {}
     }),
     scriptHelp = function (str) {
@@ -49,7 +50,11 @@ module.exports = function (gulp, opts) {
         if (typeof recipe === "string") {
           recipe = {template: recipe}
         }
-        run('npm run ' + script, {childish: recipe})
+
+        if (o.withoutNpmRun)
+          run(theScripts[script], {childish: recipe})
+        else
+          run('npm run ' + script, {childish: recipe})
       })
     })
   }
