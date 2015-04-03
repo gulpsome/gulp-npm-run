@@ -14,6 +14,8 @@ As simple as it gets:
 var gulp = require('gulp-npm-run')(require('gulp'));
 ```
 
+### Configure
+
 It can take configuration options, here are a couple of them:
 
 ```javascript
@@ -39,6 +41,8 @@ Or, perhaps because you'd like to implement your very own test task.
 In any case, excluding scripts isn't strictly required to gulp-implement them,
 as one can simply call `gulp.task`, replacing anything as necessary.
 
+#### Include
+
 The counterpart of exclude is include, which could be an Array whitelist.
 Its more useful form is an Object, the keys corresponding to npm scripts,
 the values as `help` for [gulp-help](https://github.com/chmontgomery/gulp-help).
@@ -52,6 +56,8 @@ to describe tasks subsequently added, if more complete documentation is desired.
 ```sh
 gulp help
 ```
+
+#### Further
 
 See [datomiki](https://github.com/datomicon/datomiki)
 for a practical, somewhat more advanced usage example.
