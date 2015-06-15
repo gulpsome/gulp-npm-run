@@ -2,7 +2,8 @@
 
 var R = require('ramda'),
     path = require('path'),
-    help = require('gulp-help'),
+    help = require('stamina').gulpHelpify,
+    task = require('stamina').gulpTask,
     red = require('chalk').red,
     log = require('gulp-util').log,
     run = require('childish-process'),
@@ -21,8 +22,8 @@ var R = require('ramda'),
       return (matches[1] ? '-' : '≈') + ' `' + matches[2] + '`'
     }
 
-module.exports = function (gulp, opts) {
-  gulp = help(gulp)
+module.exports = function (gulpIn, opts) {
+  var gulp = help(gulpIn) // perhaps it should be optional, beverage adds it...
 
   var o = def(opts || {})
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
@@ -45,7 +46,7 @@ module.exports = function (gulp, opts) {
       if (o.requireStrict) process.exit(1)
     }
     useScripts.forEach(function (script) {
-      gulp.task(script, includeHelp[script], function () {
+      task(gulp, script, includeHelp[script], function () {
         var recipe = o.customize[script] || o.default || 'default'
         if (typeof recipe === "string") {
           recipe = {template: recipe}
