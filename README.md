@@ -14,6 +14,8 @@ As simple as it gets:
 var gulp = require('gulp-npm-run')(require('gulp'));
 ```
 
+### Configure
+
 It can take configuration options, here are a couple of them:
 
 ```javascript
@@ -39,6 +41,8 @@ Or, perhaps because you'd like to implement your very own test task.
 In any case, excluding scripts isn't strictly required to gulp-implement them,
 as one can simply call `gulp.task`, replacing anything as necessary.
 
+#### Include / Help
+
 The counterpart of exclude is include, which could be an Array whitelist.
 Its more useful form is an Object, the keys corresponding to npm scripts,
 the values as `help` for [gulp-help](https://github.com/chmontgomery/gulp-help).
@@ -52,6 +56,19 @@ to describe tasks subsequently added, if more complete documentation is desired.
 ```sh
 gulp help
 ```
+
+However, please note that in order to enable help, you'd either have to either:
+
+1. use [beverage](https://github.com/orlin/beverage) for this and other reasons,
+2. or setup [gulp-help](https://github.com/chmontgomery/gulp-help) on your own:
+
+```javascript
+var gulp = require('gulp-npm-run')(require('gulp-help')(require('gulp')));
+```
+
+Help is entirely optional, `gulp-npm-run` does not modify `gulp`'s api for you.
+
+#### Further
 
 See [datomiki](https://github.com/datomicon/datomiki)
 for a practical, somewhat more advanced usage example.
@@ -67,8 +84,13 @@ install.sh #once
 npm test
 ```
 
-Though `gulp-npm-test` should work on any platform, its tests probably
-need a _*nix_ to run - Linux, Mac, etc.
+Though `gulp-npm-run` should work on any platform, its tests may
+need a _*nix_ to run, e.g. Linux, MacOS, etc.
+
+## Dependencies
+
+[![Dependency Status](https://david-dm.org/orlin/beverage.svg)](https://david-dm.org/orlin/gulp-npm-run)
+[![devDependency Status](https://david-dm.org/orlin/beverage/dev-status.svg)](https://david-dm.org/orlin/gulp-npm-run#info=devDependencies)
 
 ## License
 
