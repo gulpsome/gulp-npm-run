@@ -84,8 +84,13 @@ install.sh #once
 npm test
 ```
 
-Though `gulp-npm-test` should work on any platform, its tests probably
-need a _*nix_ to run - Linux, Mac, etc.
+Though `gulp-npm-run` should work on any platform, its tests may
+need a _*nix_ to run, e.g. Linux, MacOS, etc.
+
+## Dependencies
+
+[![Dependency Status](https://david-dm.org/orlin/beverage.svg)](https://david-dm.org/orlin/gulp-npm-run)
+[![devDependency Status](https://david-dm.org/orlin/beverage/dev-status.svg)](https://david-dm.org/orlin/gulp-npm-run#info=devDependencies)
 
 ## License
 
