@@ -1,8 +1,7 @@
-"use strict"
+'use strict'
 
 var R = require('ramda'),
     path = require('path'),
-    help = require('stamina').gulpHelpify,
     task = require('stamina').gulpTask,
     red = require('chalk').red,
     log = require('gulp-util').log,
@@ -22,9 +21,7 @@ var R = require('ramda'),
       return (matches[1] ? '-' : '≈') + ' `' + matches[2] + '`'
     }
 
-module.exports = function (gulpIn, opts) {
-  var gulp = help(gulpIn) // perhaps it should be optional, beverage adds it...
-
+module.exports = function (gulp, opts) {
   var o = def(opts || {})
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
   var includeHelp = R.mapObj(scriptHelp, theScripts)

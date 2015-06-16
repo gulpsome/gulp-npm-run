@@ -41,7 +41,7 @@ Or, perhaps because you'd like to implement your very own test task.
 In any case, excluding scripts isn't strictly required to gulp-implement them,
 as one can simply call `gulp.task`, replacing anything as necessary.
 
-#### Include
+#### Include / Help
 
 The counterpart of exclude is include, which could be an Array whitelist.
 Its more useful form is an Object, the keys corresponding to npm scripts,
@@ -56,6 +56,17 @@ to describe tasks subsequently added, if more complete documentation is desired.
 ```sh
 gulp help
 ```
+
+However, please note that in order to enable help, you'd either have to either:
+
+1. use [beverage](https://github.com/orlin/beverage) for this and other reasons,
+2. or setup [gulp-help](https://github.com/chmontgomery/gulp-help) on your own:
+
+```javascript
+var gulp = require('gulp-npm-run')(require('gulp-help')(require('gulp')));
+```
+
+Help is entirely optional, `gulp-npm-run` does not modify `gulp`'s api for you.
 
 #### Further
 
