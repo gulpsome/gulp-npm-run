@@ -22,11 +22,11 @@
   "contributors": [],
   "main": "index.js",
   "dependencies": {
+    "be-goods": "0.0.1",
     "chalk": "^1.0.0",
     "childish-process": "0.0.4-alpha.1",
     "gulp-util": "^3.0.5",
-    "ramda": "^0.15.0",
-    "stamina": "0.0.3"
+    "ramda": "^0.15.0"
   },
   "devDependencies": {
     "batshit": "0.1.0-1"
@@ -41,10 +41,5 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://orlin.mit-license.org"
-    }
-  ]
+  "license": "MIT"
 }
