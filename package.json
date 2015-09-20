@@ -9,7 +9,7 @@
     "tasks",
     "notifications"
   ],
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "repository": {
     "type": "git",
     "url": "git://github.com/orlin/gulp-npm-run.git"
@@ -22,11 +22,11 @@
   "contributors": [],
   "main": "index.js",
   "dependencies": {
-    "chalk": "^1.0.0",
+    "be-goods": "0.0.1-1",
+    "chalk": "^1.1.1",
     "childish-process": "0.0.4-alpha.1",
-    "gulp-util": "^3.0.5",
-    "ramda": "^0.15.0",
-    "stamina": "0.0.3"
+    "gulp-util": "^3.0.6",
+    "ramda": "^0.17.1"
   },
   "devDependencies": {
     "batshit": "0.1.0-1"
@@ -41,10 +41,5 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://orlin.mit-license.org"
-    }
-  ]
+  "license": "MIT"
 }

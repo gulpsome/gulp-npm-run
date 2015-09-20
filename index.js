@@ -2,7 +2,7 @@
 
 var R = require('ramda'),
     path = require('path'),
-    task = require('stamina').gulpTask,
+    task = require('be-goods').gulpTask,
     red = require('chalk').red,
     log = require('gulp-util').log,
     run = require('childish-process'),
