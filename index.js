@@ -11,9 +11,10 @@ var R = require('ramda'),
       exclude: [],
       require: [],
       requireStrict: false,
-      withoutNpmRun: true,
+      npmRun: false,
       customize: {}
     }),
+    logger = require('be-goods').console(),
     scriptHelp = function (str) {
       var matches = str.match(/^(\.?\/?node_modules\/.bin\/)?(.*)$/)
       // - stands for having shortened the local script path down its essential
@@ -23,6 +24,10 @@ var R = require('ramda'),
 
 module.exports = function (gulp, opts) {
   var o = def(opts || {})
+  if(o.hasOwnProperty('withoutNpmRun')) {
+    o.npmRun = ! o.withoutNpmRun
+    logger.warn('Option withoutNpmRun is deprecated, use npmRun instead.')
+  }
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
   var includeHelp = R.mapObj(scriptHelp, theScripts)
   if (R.is(Object, o.include)) {
@@ -49,10 +54,10 @@ module.exports = function (gulp, opts) {
           recipe = {template: recipe}
         }
 
-        if (o.withoutNpmRun)
-          run(theScripts[script], {childish: recipe})
-        else
+        if (o.npmRun)
           run('npm run ' + script, {childish: recipe})
+        else
+          run(theScripts[script], {childish: recipe})
       })
     })
   }
