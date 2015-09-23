@@ -11,7 +11,7 @@ var R = require('ramda'),
       exclude: [],
       require: [],
       requireStrict: false,
-      withoutNpmRun: true,
+      npmRun: false,
       customize: {}
     }),
     scriptHelp = function (str) {
@@ -23,6 +23,10 @@ var R = require('ramda'),
 
 module.exports = function (gulp, opts) {
   var o = def(opts || {})
+  if(o.hasOwnProperty('withoutNpmRun')) {
+    o.npmRun = ! o.withoutNpmRun
+    console.warn('deprecated withoutNpmRun')
+  }
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
   var includeHelp = R.mapObj(scriptHelp, theScripts)
   if (R.is(Object, o.include)) {
@@ -49,10 +53,10 @@ module.exports = function (gulp, opts) {
           recipe = {template: recipe}
         }
 
-        if (o.withoutNpmRun)
-          run(theScripts[script], {childish: recipe})
-        else
+        if (o.npmRun)
           run('npm run ' + script, {childish: recipe})
+        else
+          run(theScripts[script], {childish: recipe})
       })
     })
   }
