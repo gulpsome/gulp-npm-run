@@ -14,6 +14,7 @@ var R = require('ramda'),
       npmRun: false,
       customize: {}
     }),
+    logger = require('be-goods').console(),
     scriptHelp = function (str) {
       var matches = str.match(/^(\.?\/?node_modules\/.bin\/)?(.*)$/)
       // - stands for having shortened the local script path down its essential
@@ -25,7 +26,7 @@ module.exports = function (gulp, opts) {
   var o = def(opts || {})
   if(o.hasOwnProperty('withoutNpmRun')) {
     o.npmRun = ! o.withoutNpmRun
-    console.warn('deprecated withoutNpmRun')
+    logger.warn('Option withoutNpmRun is deprecated, use npmRun instead.')
   }
   var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
   var includeHelp = R.mapObj(scriptHelp, theScripts)

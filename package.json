@@ -9,7 +9,7 @@
     "tasks",
     "notifications"
   ],
-  "version": "0.0.1-1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/orlin/gulp-npm-run.git"
@@ -22,7 +22,7 @@
   "contributors": [],
   "main": "index.js",
   "dependencies": {
-    "be-goods": "0.0.1-1",
+    "be-goods": "0.0.3",
     "chalk": "^1.1.1",
     "childish-process": "0.0.4-alpha.1",
     "gulp-util": "^3.0.6",
