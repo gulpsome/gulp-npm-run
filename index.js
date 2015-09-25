@@ -12,7 +12,7 @@ var R = require('ramda'),
       npmRun: false,
       customize: {}
     }),
-    logger = require('be-goods').console(),
+    logger = require('be-goods').logger,
     scriptHelp = function (str) {
       var matches = str.match(/^(\.?\/?node_modules\/.bin\/)?(.*)$/)
       // - stands for having shortened the local script path down its essential
