@@ -3,8 +3,6 @@
 var R = require('ramda'),
     path = require('path'),
     task = require('be-goods').gulpTask,
-    red = require('chalk').red,
-    log = require('gulp-util').log,
     run = require('childish-process'),
     def = R.merge({
       include: [],
@@ -28,7 +26,7 @@ module.exports = function (gulp, opts) {
     o.npmRun = ! o.withoutNpmRun
     logger.warn('Option withoutNpmRun is deprecated, use npmRun instead.')
   }
-  var theScripts = require(path.join(process.cwd(), 'package.json')).scripts
+  var theScripts = require('be-goods').pkg.scripts
   var includeHelp = R.mapObj(scriptHelp, theScripts)
   if (R.is(Object, o.include)) {
     includeHelp = R.merge(includeHelp, o.include)
@@ -43,8 +41,8 @@ module.exports = function (gulp, opts) {
   if (useScripts.length) {
     if(R.intersection(allScripts, o.require).length < o.require.length) {
       // some required script was not in package.json
-      log(red("Not all of the required scripts were found in package.json"))
-      log(red("Missing:"), R.difference(o.require, allScripts))
+      logger.error("Not all of the required scripts were found in package.json")
+      logger.error("Missing scripts:", R.difference(o.require, allScripts))
       if (o.requireStrict) process.exit(1)
     }
     useScripts.forEach(function (script) {

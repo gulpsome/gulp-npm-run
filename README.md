@@ -16,12 +16,15 @@ var gulp = require('gulp-npm-run')(require('gulp'));
 
 ### Configure
 
-It can take configuration options, here are a couple of them:
+It can take configuration options, here are a few of them:
 
 ```javascript
 var gulp = require('gulp-npm-run')(require('gulp'), {
-  exclude: ['test'],
-  require: ['necessary']
+  exclude: ['test'], // the test script is excluded
+  include: {'necessary': 'a must-have task, because...'} // just a helpful description
+  require: ['necessary'], // maybe because other tasks depend it
+  requireStrict: false,
+  npmRun: false // rather than `npm run script` gulp runs the script's value / command(s)
 });
 ```
 
@@ -39,7 +42,9 @@ The `test` script / task is good to `exclude` in favor of
 which does the same, only better.
 Or, perhaps because you'd like to implement your very own test task.
 In any case, excluding scripts isn't strictly required to gulp-implement them,
-as one can simply call `gulp.task`, replacing anything as necessary.
+as one can simply call `gulp.task` to replace any pre-existing task code.
+Anyway, there may be npm scripts for which you do not want to have gulp tasks.
+Exclude enables that.
 
 #### Include / Help
 
