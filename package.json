@@ -23,9 +23,8 @@
   "main": "index.js",
   "dependencies": {
     "be-goods": "0.0.3-1",
-    "childish-process": "0.0.4",
-    "gulp-util": "^3.0.6",
-    "ramda": "^0.17.1"
+    "childish-process": "0.0.4-1",
+    "ramda": "^0.18.0"
   },
   "devDependencies": {
     "batshit": "0.1.0-1"
