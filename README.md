@@ -38,7 +38,7 @@ if it's expected in package.json without corresponding task created,
 for whatever reason.
 
 The `test` script / task is good to `exclude` in favor of
-[gulp-npm-test](https://github.com/orlin/gulp-npm-test),
+[gulp-npm-test](https://github.com/gulpsome/gulp-npm-test),
 which does the same, only better.
 Or, perhaps because you'd like to implement your very own test task.
 In any case, excluding scripts isn't strictly required to gulp-implement them,
@@ -64,7 +64,7 @@ gulp help
 
 However, please note that in order to enable help, you'd either have to either:
 
-1. use [beverage](https://github.com/orlin/beverage) for this and other reasons,
+1. use [beverage](https://github.com/gulpsome/beverage) for this and other reasons,
 2. or setup [gulp-help](https://github.com/chmontgomery/gulp-help) on your own:
 
 ```javascript
@@ -94,8 +94,8 @@ need a _*nix_ to run, e.g. Linux, MacOS, etc.
 
 ## Dependencies
 
-[![Dependency Status](https://david-dm.org/orlin/beverage.svg)](https://david-dm.org/orlin/gulp-npm-run)
-[![devDependency Status](https://david-dm.org/orlin/beverage/dev-status.svg)](https://david-dm.org/orlin/gulp-npm-run#info=devDependencies)
+[![Dependency Status](https://david-dm.org/gulpsome/beverage.svg)](https://david-dm.org/gulpsome/gulp-npm-run)
+[![devDependency Status](https://david-dm.org/gulpsome/beverage/dev-status.svg)](https://david-dm.org/gulpsome/gulp-npm-run#info=devDependencies)
 
 ## License
 
