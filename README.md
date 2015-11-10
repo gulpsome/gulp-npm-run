@@ -82,7 +82,7 @@ See [childish-process](https://github.com/orlin/childish-process)
 for further understanding of `templates`, `default` and `customize` - options
 for configuring a task's event-handlers / notifications.
 
-## Tests [![Build Status](https://img.shields.io/travis/orlin/gulp-npm-run.svg?style=flat)](http://travis-ci.org/orlin/gulp-npm-run)
+## Tests [![Build Status](https://img.shields.io/travis/gulpsome/gulp-npm-run.svg?style=flat)](http://travis-ci.org/gulpsome/gulp-npm-run)
 
 ```sh
 install.sh #once
@@ -92,7 +92,7 @@ npm test
 Though `gulp-npm-run` should work on any platform, its tests may
 need a _*nix_ to run, e.g. Linux, MacOS, etc.
 
-## Dependencies
+## Develop
 
 [![Dependency Status](https://david-dm.org/gulpsome/beverage.svg)](https://david-dm.org/gulpsome/gulp-npm-run)
 [![devDependency Status](https://david-dm.org/gulpsome/beverage/dev-status.svg)](https://david-dm.org/gulpsome/gulp-npm-run#info=devDependencies)

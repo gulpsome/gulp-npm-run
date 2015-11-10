@@ -9,7 +9,7 @@
     "tasks",
     "notifications"
   ],
-  "version": "0.0.2-1",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git@github.com:gulpsome/gulp-npm-run.git"
@@ -22,7 +22,7 @@
   "contributors": [],
   "main": "index.js",
   "dependencies": {
-    "be-goods": "0.0.3-1",
+    "be-goods": "0.0.4",
     "childish-process": "0.0.4-1",
     "ramda": "^0.18.0"
   },
