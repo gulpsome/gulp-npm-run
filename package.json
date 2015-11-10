@@ -9,23 +9,22 @@
     "tasks",
     "notifications"
   ],
-  "version": "0.0.2-1",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
-    "url": "git://github.com/orlin/gulp-npm-run.git"
+    "url": "git@github.com:gulpsome/gulp-npm-run.git"
   },
   "bugs": {
     "mail": "om@soundsapiens.com",
-    "url": "https://github.com/orlin/gulp-npm-run/issues"
+    "url": "https://github.com/gulpsome/gulp-npm-run/issues"
   },
   "author": "Orlin M Bozhinov <om@soundsapiens.com>",
   "contributors": [],
   "main": "index.js",
   "dependencies": {
-    "be-goods": "0.0.3-1",
-    "childish-process": "0.0.4",
-    "gulp-util": "^3.0.6",
-    "ramda": "^0.17.1"
+    "be-goods": "0.0.4",
+    "childish-process": "0.0.4-1",
+    "ramda": "^0.18.0"
   },
   "devDependencies": {
     "batshit": "0.1.0-1"
