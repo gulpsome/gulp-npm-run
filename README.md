@@ -1,5 +1,9 @@
 # gulp-npm-run
 
+[![version npm](https://img.shields.io/npm/v/gulp-npm-run.svg?style=flat-square)](https://www.npmjs.com/package/gulp-npm-run)
+[![dependencies](https://img.shields.io/david/gulpsome/gulp-npm-run.svg?style=flat-square)](https://david-dm.org/gulpsome/gulp-npm-run)
+[![build status](https://img.shields.io/travis/gulpsome/gulp-npm-run.svg?style=flat-square)](http://travis-ci.org/gulpsome/gulp-npm-run)
+
 Creates gulp tasks for your npm scripts.
 Notifies if a task fails, using node-notifier via childish-process.
 Notifications can be customized.
