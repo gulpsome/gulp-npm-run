@@ -3,11 +3,14 @@
   "description": "npm scripts become gulp tasks",
   "keywords": [
     "gulp",
+    "beverage",
     "npm",
     "package.json",
     "scripts",
     "tasks",
-    "notifications"
+    "notifications",
+    "workflow",
+    "productivity"
   ],
   "version": "0.0.3",
   "repository": {
